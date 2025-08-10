@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kalaiarasan E - Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for other icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <a href="#" class="logo">Kalaiarasan E</a>
+    <nav>
+      <a href="#" class="active">Home</a>
+      <a href="#">Services</a>
+      <a href="#">Skills</a>
+      <a href="#">Education</a>
+      <a href="#">Experience</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="home">
+    <div class="home-img">
+      <img src="main.jpg" alt="Kalaiarasan Photo">
+    </div>
+    <div class="home-content">
+      <h1>Hi, It's <span>Kalaiarasan</span></h1>
+      <h2 class="typing-text">I'm a <span id="typed-text"></span></h2>
+      <p>I'm a passionate developer who loves building beautiful websites and user-friendly interfaces.</p>
+
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/kalaiarasan-e-7b7044258/"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/KalaiarasanE"><i class="fa-brands fa-github"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+       <a href="https://leetcode.com/u/KalaiarasanE/" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" 
+             alt="LeetCode" class="leetcode-icon">
+       </a>
+
+      </div>
+
+      <a href="Thanks.html" class="btn">Have a Nice Day</a>
+    </div>
+  </section>
+
+  <!-- Typing Animation Script -->
+  <script>
+    const roles = ["Web Developer", "UI/UX Designer", "Tech Enthusiast"];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    const textElement = document.getElementById("typed-text");
+
+    function typeEffect() {
+      const currentRole = roles[roleIndex];
+      let displayText = currentRole.substring(0, charIndex);
+      textElement.textContent = displayText;
+
+      if (!isDeleting) {
+        if (charIndex < currentRole.length) {
+          charIndex++;
+          setTimeout(typeEffect, 150);
+        } else {
+          isDeleting = true;
+          setTimeout(typeEffect, 1500);
+        }
+      } else {
+        if (charIndex > 0) {
+          charIndex--;
+          setTimeout(typeEffect, 100);
+        } else {
+          isDeleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+          setTimeout(typeEffect, 500);
+        }
+      }
+    }
+
+    window.addEventListener("load", typeEffect);
+  </script>
+
+</body>
+</html>
