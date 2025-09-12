@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +7,7 @@
 }
 
 body {
-  background-image: url(bck.jpg);
+  background: linear-gradient(135deg, #5808da,#dddde4);
   color: #ebeff1;
 }
 
@@ -23,7 +24,9 @@ header {
   font-weight: 700;
   text-decoration: none;
   color: hwb(180 97% 3%);
+  margin-left: -80px;   /* ✅ Moves logo slightly left */
 }
+
 nav a {
   position: relative;
   display: inline-block;
@@ -46,6 +49,22 @@ nav a:hover {
   box-shadow: 0 0 10px #8e42f5, 0 0 20px #4286f4;
   transform: translateY(-2px);
 }
+  
+    /* Particles only inside home section */
+    .home {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* stay behind content */
+    }
+  
 
 /* Spark effects */
 nav a::before,
@@ -118,8 +137,10 @@ nav a::after {
   width: 440px;
   height: 480px; /* Equal to width */
   border-radius: 50%; /* Perfect circle */
-  border: 5px solid #bfeaff;
+  border: 5px solid #fbfbfc;
   object-fit: cover;
+  transform:rotate(0deg);
+  animation: rotate-border 10s linear infinite;
 }
 
 .home-content {
@@ -132,7 +153,8 @@ nav a::after {
 }
 
 .home-content h1 span {
-  color: #53abf3;
+  color: #08c0f8fd;
+  
 }
 
 .typing-text {
@@ -146,7 +168,7 @@ nav a::after {
 
 
 #typed-text {
-  color: #53abf3;
+  color: #08c0f8fd;
   border-right: 2px solid #fff;
   padding-right: 5px;
   animation: blink 0.7s infinite;
@@ -217,3 +239,478 @@ nav a::after {
     width: 200px;
   }
 }
+
+/* About Section */
+/* Make About Section full page */
+.about {
+  min-height: 100vh;
+  padding: 1rem 5% 3rem 5%; /* reduced top padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: linear-gradient(135deg, #01122b50, #f0eeefa6);
+}
+/* About Section Heading */
+/* Heading Style */
+.about h2 {
+  text-align: left;
+  font-size: 1.6rem;
+  font-weight: 650;
+  margin-bottom: 1.5rem 20px;
+  margin-left: -30px;   /* ✅ Moves logo slightly left */
+
+}
+
+
+
+
+.about-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;   /* ✅ This centers the right side vertically */
+  gap: 3rem;
+  max-width: 1100px;
+  width: 100%;
+  min-height: 100vh;     /* ✅ Full height for vertical centering */
+}
+
+
+/* Left Side (Image) */
+.about-left img {
+  width: 250px;        /* mid-size */
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;  /* circle */
+  border: 4px solid #f5f4f8 ;
+  box-shadow: 0 8px 25px rgba(75, 4, 240, 0.938);
+  transition: transform 0.4s ease;
+}
+
+.about-left img:hover {
+  transform: scale(1.05);
+}
+.about-container h1{
+  color: #01010a;
+}
+.about-container h3{
+  color: #040114;
+}
+
+/* Right Side (Text) */
+.about-right {
+  flex: 1;
+  color: #ffffff;
+  padding-left: 2rem;   /* ✅ Push text a bit to the right */
+}
+
+/* Resume Button */
+.resume-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #441eebde, #ee0979);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(255, 105, 135, 0.4);
+  transition: 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Button Hover Animation */
+.resume-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-20deg);
+  transition: 0.5s;
+}
+
+.resume-btn:hover::before {
+  left: 100%;
+}
+
+.resume-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(255, 105, 135, 0.6);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textGlow {
+  from {
+    text-shadow: 0 0 5px #6595fc, 0 0 10px #3309ee, 0 0 20px #00c6ff;
+  }
+  to {
+    text-shadow: 0 0 15px #4b55e0, 0 0 25px #4749e9, 0 0 35px #00c6ff;
+  }
+}
+
+
+/* education section starts */
+.education {
+  background: linear-gradient(135deg, #032b3b91,#f2f2f32d);
+  min-height: 80vh;
+}
+.education .qoute {
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+.education .box-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.education .box-container .box {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  border-radius: 0.5rem;
+  box-shadow: 0.2rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  margin-top: 2rem;
+  overflow: hidden;
+  transition: 0.3s;
+    background: linear-gradient(135deg, #04e7637e,#070230);
+
+}
+.education .box-container .box:hover {
+  transform: scale(1.03);
+  box-shadow: 1rem 0.5rem 1.2rem rgba(0, 0, 0, 0.3);
+}
+.education .box-container .box .image {
+  flex: 1 1 20rem;
+  width: 100%;
+}
+.education .box-container .box img {
+  object-fit: cover;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.education .box-container .box .content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  flex-wrap: wrap;
+  flex: 1 1 70rem;
+}
+.education .box-container .box .content h3 {
+  font-size: 2.5rem;
+  color: #040114;
+  padding: 0.5rem 0;
+  font-weight: 600;
+  text-align: left;
+  margin-left: 1rem;
+}
+.education .box-container .box .content p {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  text-align: left;
+}
+.education h4 {
+  font-size: 2rem;
+  color: #040114;
+  text-align: left;
+  margin: 1rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+}
+.education h1 {
+  text-align: left;
+  font-size: 1.6rem;
+  font-weight: 650;
+  margin-bottom: 1.5rem 20px;
+  margin-left: 40px;   /* ✅ Moves logo slightly left */
+
+}
+
+/* skills section starts */
+/* Full-page dark background */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #0a0a1e, #14143c, #1c1c3c);
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+}
+
+/* Skills Section */
+.skills {
+  min-height: 100vh;   /* Full screen height */
+  width: 100%;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  background: rgba(20, 20, 40, 0.7);  /* darker glass effect */
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Gradient Animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.skills h2 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #ffae00, #ff0080, #00ffe7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientText 6s infinite linear;
+}
+
+/* Animated Gradient Text */
+@keyframes gradientText {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.skills-description {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #c7c7d1;
+}
+
+/* Skills Grid */
+.skills-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+/* Glassmorphism Cards */
+.skills-category {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-category:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 255, 200, 0.3);
+}
+
+.skills-category h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 255, 200, 0.5);
+}
+
+/* Skill Pills */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-weight: 100;
+  justify-content: center;
+}
+
+.skill {
+  padding: 10px 18px;
+  border-radius: 30px;
+  background: rgba(43, 43, 72, 0.6);
+  color: #ffffff;
+  font-size: 1.1rem;
+  border: 1.5px solid rgba(0, 255, 200, 0.6);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Neon Glow Hover */
+.skill:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 255, 200, 0.8),
+              0 0 30px rgba(0, 255, 200, 0.4);
+  border-color: rgba(0, 255, 200, 0.9);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .skills-container {
+      grid-template-columns: repeat(2, 1fr);
+  }
+  .skills-category:nth-child(5) {
+      grid-column: span 2;
+  }
+}
+
+
+/* certificates section start*/
+
+.certificates {
+  text-align: center;
+  padding: 20px;
+}
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.certificate-container {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 10px #62ddf3fb;
+  transition: transform 0.3s ease-in-out;
+}
+
+.certificate-container:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+.certificate-image {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  aspect-ratio: 4 / 3;
+}
+
+.certificate-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  background: #111;
+  padding: 5px;
+  border-radius: 10px;
+  transition: transform 0.4s ease-in-out;
+}
+
+.certificate-container:hover .certificate-image img {
+  transform: scale(1.05);
+}
+
+/* Modal Base */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 24, 30, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Show Modal */
+.modal.show {
+  display: flex;
+  animation: fadeIn 0.4s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Closing Animation */
+.modal.hide {
+  animation: fadeOut 0.4s forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.8); }
+}
+
+/* Modal Content (Certificate) */
+.modal-content {
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 255, 200, 0.7),
+              0 0 60px rgba(0, 255, 200, 0.4);
+  animation: glowPulse 2s infinite alternate;
+}
+
+/* Glow Animation */
+@keyframes glowPulse {
+  from { box-shadow: 0 0 15px rgba(0, 255, 200, 0.4),
+                   0 0 30px rgba(0, 255, 200, 0.2); }
+  to   { box-shadow: 0 0 30px rgba(0, 255, 200, 0.8),
+                   0 0 60px rgba(0, 255, 200, 0.5); }
+}
+
+/* Reflection Effect */
+.modal-content::after {
+  content: "";
+  display: block;
+  height: 15px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0,255,200,0.4), transparent);
+  filter: blur(8px);
+  margin-top: 10px;
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2.2rem;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.close:hover {
+  color: #00ffc6;
+  text-shadow: 0 0 10px #00ffc6, 0 0 20px #00ffc6;
+  transform: rotate(90deg) scale(1.3);
+}
+
+/* certificates section ends*/
